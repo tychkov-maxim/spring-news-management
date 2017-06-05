@@ -1,11 +1,12 @@
 package com.epam.tm.news.controller;
 
 import com.epam.tm.news.entity.News;
+import org.springframework.http.ResponseEntity;
 
-public interface NewsController {
-    String getAllNewsByDate() throws ControllerException;
-    String getNewsById(long id) throws ControllerException;
-    String deleteNews(News news) throws ControllerException;
-    String saveNews(News news) throws ControllerException;
-    String deleteList(long ids[]);
+public interface NewsController<T> {
+    T getAllNewsByDate() throws ControllerException;
+    T getNewsById(long id) throws ControllerException;
+    T deleteNewsById(long id) throws ControllerException;
+    T saveNews(News news) throws ControllerException;
+    T deleteList(long ids[]);
 }
