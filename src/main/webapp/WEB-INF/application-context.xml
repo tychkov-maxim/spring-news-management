@@ -7,7 +7,7 @@
                   http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <context:component-scan base-package="com.epam.tm.news"/>
+
 
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
@@ -42,5 +42,8 @@
         </property>
         <!--<property name="mappingResources" value="News.hbm.xml"/>-->
     </bean>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.epam.tm.news"/>
 
 </beans>

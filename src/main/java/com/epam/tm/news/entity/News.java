@@ -3,6 +3,11 @@ package com.epam.tm.news.entity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
@@ -18,9 +23,13 @@ import java.util.Date;
                 "brief = :brief, content = :content WHERE id = :id"),
         @NamedNativeQuery(name = "lastId", query = "SELECT NEWS_SEQ.currval FROM dual")
 })
+
+@XmlRootElement(name = "news")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "news", propOrder = {"title", "date", "brief", "content"})
 @Entity
 @Table(name = "NEWS")
-public class News extends BaseEntity {
+public class News extends BaseEntity implements Serializable{
     @Column(name = "TITLE", nullable = false, length = 64)
     private String title;
     @Column(name = "dateApp", nullable = false)
