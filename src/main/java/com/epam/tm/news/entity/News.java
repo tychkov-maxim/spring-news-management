@@ -25,8 +25,6 @@ import java.util.Date;
 })
 
 @XmlRootElement(name = "news")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "news", propOrder = {"title", "date", "brief", "content"})
 @Entity
 @Table(name = "NEWS")
 public class News extends BaseEntity implements Serializable{
@@ -68,8 +66,6 @@ public class News extends BaseEntity implements Serializable{
     public void setDate(Date date) {
         this.date = date;
     }
-
-    @Basic
 
     public String getBrief() {
         return brief;
