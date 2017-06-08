@@ -3,6 +3,7 @@ package com.epam.tm.news.soap;
 import com.epam.tm.news.entity.News;
 import com.epam.tm.news.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 

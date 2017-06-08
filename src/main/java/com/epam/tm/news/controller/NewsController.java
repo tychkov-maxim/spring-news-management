@@ -1,7 +1,7 @@
 package com.epam.tm.news.controller;
 
 import com.epam.tm.news.entity.News;
-import org.springframework.http.ResponseEntity;
+
 
 public interface NewsController<T> {
     T getAllNewsByDate() throws ControllerException;

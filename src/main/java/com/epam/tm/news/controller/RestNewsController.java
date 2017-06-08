@@ -24,7 +24,6 @@ public class RestNewsController implements NewsController<ResponseEntity> {
 
     @Override
     @RequestMapping(value = "", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity getAllNewsByDate() throws ControllerException {
         try {
             List<News> allNewsByDate = newsService.getAllNewsByDate();

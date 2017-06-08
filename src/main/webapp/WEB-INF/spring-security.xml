@@ -6,20 +6,20 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
-    <global-method-security pre-post-annotations="enabled"/>
 
     <http auto-config="true" use-expressions="true">
-        <!--<intercept-url pattern="/rest/*" access="hasRole('ROLE_USER')" />-->
-        <intercept-url pattern="/soap/*" access="hasRole('ROLE_USER')" />
+        <csrf disabled="true"/>
+        <intercept-url pattern="/rest/*" access="isAuthenticated()" />
+        <intercept-url pattern="/soap/*" access="isAuthenticated()" />
     </http>
 
 
 
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="mkyong" password="123456" authorities="ROLE_USER" />
-            </user-service>
+         <jdbc-user-service data-source-ref="myDataSource"
+                            users-by-username-query="select username, password, enabled from users where username = ?"
+                            authorities-by-username-query="select username, authority from authorities where username = ?"/>
         </authentication-provider>
     </authentication-manager>
 
