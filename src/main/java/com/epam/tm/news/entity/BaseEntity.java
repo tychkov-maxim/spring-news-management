@@ -20,7 +20,7 @@ public class BaseEntity {
     }
 
     @Override
-    public String toString() {
+    public String toString()1 {
         return "BaseEntity{" +
                 "id=" + id +
                 '}';
