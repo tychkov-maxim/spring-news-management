@@ -41,9 +41,9 @@ public class HibernateNamedQueryNewsDao extends HibernateNamedQueryDao<News> imp
         return getListByDate.list();
     }
 
-    private long getLastId(){
+    private long getLastId() {
         Session currentSession = sessionFactory.getCurrentSession();
         Query lastIdQuery = currentSession.getNamedQuery(LAST_ID_NAMED_QUERY);
-        return ((BigDecimal)lastIdQuery.uniqueResult()).longValue();
+        return ((BigDecimal) lastIdQuery.uniqueResult()).longValue();
     }
 }

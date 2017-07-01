@@ -17,17 +17,17 @@ public abstract class HibernateNamedQueryDao<T extends BaseEntity> implements Da
     @Override
     public T fetchById(long id) {
         Session currentSession = sessionFactory.getCurrentSession();
-            Query selectQuery = currentSession.getNamedQuery(FIND_NEWS_BY_ID_NAMED_QUERY);
-            selectQuery.setParameter(ID,id);
-            return (T) selectQuery.uniqueResult();
+        Query selectQuery = currentSession.getNamedQuery(FIND_NEWS_BY_ID_NAMED_QUERY);
+        selectQuery.setParameter(ID, id);
+        return (T) selectQuery.uniqueResult();
 
     }
 
     @Override
     public void remove(T entity) {
-       Session currentSession = sessionFactory.getCurrentSession();
-            Query deleteQuery = currentSession.getNamedQuery(DELETE_NEWS_NAMED_QUERY);
-            deleteQuery.setParameter(ID, entity.getId());
-            deleteQuery.executeUpdate();
+        Session currentSession = sessionFactory.getCurrentSession();
+        Query deleteQuery = currentSession.getNamedQuery(DELETE_NEWS_NAMED_QUERY);
+        deleteQuery.setParameter(ID, entity.getId());
+        deleteQuery.executeUpdate();
     }
 }

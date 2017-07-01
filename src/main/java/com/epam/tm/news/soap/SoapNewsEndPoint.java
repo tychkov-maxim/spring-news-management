@@ -3,9 +3,7 @@ package com.epam.tm.news.soap;
 import com.epam.tm.news.entity.News;
 import com.epam.tm.news.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
-
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -14,7 +12,7 @@ import java.util.List;
 
 @Component
 @WebService(endpointInterface = "com.epam.tm.news.soap.NewsSoapInterface", serviceName = "News")
-public class SoapNewsEndPoint implements NewsSoapInterface<News>{
+public class SoapNewsEndPoint implements NewsSoapInterface<News> {
 
     @Autowired
     private NewsService newsService;
@@ -48,10 +46,10 @@ public class SoapNewsEndPoint implements NewsSoapInterface<News>{
     @Override
     @WebMethod
     public void deleteList(List<Long> ids) {
-        for (Long id : ids) {
+        ids.forEach(id -> {
             News news = new News();
             news.setId(id);
             newsService.deleteNewsById(news);
-        }
+        });
     }
 }

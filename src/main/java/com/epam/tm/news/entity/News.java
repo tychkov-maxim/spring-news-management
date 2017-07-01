@@ -1,12 +1,8 @@
 package com.epam.tm.news.entity;
 
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
@@ -27,7 +23,7 @@ import java.util.Date;
 @XmlRootElement(name = "news")
 @Entity
 @Table(name = "NEWS")
-public class News extends BaseEntity implements Serializable{
+public class News extends BaseEntity implements Serializable {
     @Column(name = "TITLE", nullable = false, length = 64)
     private String title;
     @Column(name = "dateApp", nullable = false)

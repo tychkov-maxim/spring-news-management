@@ -4,7 +4,6 @@ import com.epam.tm.news.dao.NewsDao;
 import com.epam.tm.news.entity.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,19 +17,19 @@ public class NewsService {
     @Qualifier("HibernateDao")
     private NewsDao newsDao;
 
-    public List<News> getAllNewsByDate(){
-           return newsDao.getAllNewsOrderByDate();
+    public List<News> getAllNewsByDate() {
+        return newsDao.getAllNewsOrderByDate();
     }
 
-    public void deleteNewsById(News news){
+    public void deleteNewsById(News news) {
         newsDao.remove(news);
     }
 
-    public News getNewsById(long id){
+    public News getNewsById(long id) {
         return newsDao.fetchById(id);
     }
 
-    public News saveNews(News news){
+    public News saveNews(News news) {
         return newsDao.save(news);
     }
 }

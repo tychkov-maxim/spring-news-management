@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,7 +48,7 @@ public class RestNewsController implements NewsController<ResponseEntity> {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
             String json = mapper.writeValueAsString(newsById);
-            return new ResponseEntity<>(json,HttpStatus.OK);
+            return new ResponseEntity<>(json, HttpStatus.OK);
 
         } catch (JsonProcessingException e) {
             throw new ControllerException(e);
@@ -68,7 +67,7 @@ public class RestNewsController implements NewsController<ResponseEntity> {
 
     @Override
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ResponseEntity saveNews(@RequestBody  News news) throws ControllerException {
+    public ResponseEntity saveNews(@RequestBody News news) throws ControllerException {
         try {
             News savedNews = newsService.saveNews(news);
             String json = mapper.writeValueAsString(savedNews);
@@ -83,7 +82,7 @@ public class RestNewsController implements NewsController<ResponseEntity> {
 
     @Override
     @RequestMapping(value = "/deleteList", method = RequestMethod.DELETE)
-    public ResponseEntity deleteList(@RequestBody  long [] ids) {
+    public ResponseEntity deleteList(@RequestBody long[] ids) {
         for (long id : ids) {
             News news = new News();
             news.setId(id);

@@ -24,6 +24,16 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+
+  <filter>
+    <filter-name>addAllowAccessFilter</filter-name>
+    <filter-class>com.epam.tm.news.filter.AllowFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>addAllowAccessFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -53,5 +63,7 @@
     <servlet-name>CXFServlet</servlet-name>
     <url-pattern>/soap/*</url-pattern>
   </servlet-mapping>
+
+
 
 </web-app>
